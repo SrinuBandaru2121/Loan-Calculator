@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoanCalci</title>
+    <style>
+       #container {
+          background-color: rgb(71, 121, 152);
+          height: 500px;
+          width: 500px;
+          margin-left: 150px;
+          text-align: center;
+          border-radius: 10px;
+       }
+       h1{
+        color: beige; 
+        font-size: 35px;
+        letter-spacing: 3px;
+       padding-top: 20px;
+       }
+       #h1block{
+        margin-top: 60px;
+       }
+       #block1{
+        
+        margin-top: 30px;
+        margin-left: 40px;
+       }
+       #block2{
+    
+        margin-top: 30px;
+        margin-left: 40px;
+       }
+       #block3{
+      
+        margin-top: 30px;
+        margin-left: 40px;
+       }
+        input{
+            width: 430px;
+            border-radius: 10px;
+            height: 40px;
+        }
+        button{
+            margin-top: 40px;
+            height: 40px;
+            width: 80px;
+            border-radius: 10px;
+        }
+        #output{
+            margin-top: 40px;
+            font-size: 34px;
+        }
+    </style>
+</head>
+<body>
+      <div id="container">
+            <div id="h1block">
+             <h1>Loan Calculator</h1>
+            </div>
+            <div id="block1">
+                <input type="text" id="amount" placeholder="enter total amount">
+            </div>
+            <div id="block2">
+                 <input type="text" id="interest" placeholder="enter interest rate%">
+            </div>
+            <div id="block3">
+           <input type="text" id="months" placeholder="enter noof months">
+           <button onclick="calculatemonthlypayment()">calculate</button>
+           <div id="output"></div>
+    </div>
+      </div>  
+      <script>
+        function calculatemonthlypayment(){
+              var amount=parseFloat(document.getElementById('amount').value);
+              var interest=parseFloat(document.getElementById('interest').value);
+              var months=parseFloat(document.getElementById('months').value);
+             if(isNaN(amount)||isNaN(interest)||isNaN(months)){
+               alert("please enter valid numbers");
+               return;
+             }
+            var monthInterest = (interest / 100) / 12;
+            var monthPayment=(amount*monthInterest)/100;
+        
+            document.getElementById('output').innerHTML='monthlypayement is:$'+monthPayment;
+        }
+      </script>
+</body>
+</html>
