@@ -81,9 +81,9 @@
                alert("please enter valid numbers");
                return;
              }
-            var monthInterest = (interest / 100) / 12;
-            var monthPayment=(amount*monthInterest)/100;
-        
+            
+            var monthInterest = (interest ) / 12;
+            var monthPayment = (amount * monthInterest * Math.pow(1 + monthInterest, months))/((Math.pow(1 + monthInterest, months))-1)
             document.getElementById('output').innerHTML='monthlypayement is:$'+monthPayment;
         }
       </script>
